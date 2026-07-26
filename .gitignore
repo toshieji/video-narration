@@ -1,0 +1,21 @@
+# 秘密情報
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+
+# OS
+.DS_Store
+
+# 作業中の生成物
+tmp/
+*.wav
+*.mp3
+*.mp4
+frames/
+audio/
