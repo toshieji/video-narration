@@ -53,7 +53,7 @@ else
 fi
 
 # ---- 2/3 文字起こし ----
-echo "==== [2/3] 文字起こし（$WHISPER_MODEL / $LANG_CODE）===="
+echo "==== [2/3] 文字起こし（$WHISPER_MODEL / ${LANG_CODE}）===="
 if [[ -f "$OUT_DIR/transcript.txt" ]]; then
   echo "  transcript.txt が既にあります — スキップ"
 else
@@ -64,7 +64,7 @@ fi
 echo "  行数: $(wc -l < "$OUT_DIR/transcript.txt" | tr -d ' ')"
 
 # ---- 3/3 スライド画像の抽出 ----
-echo "==== [3/3] スライド画像の抽出（シーン変化 > $SCENE_THRESHOLD）===="
+echo "==== [3/3] スライド画像の抽出（シーン変化 > ${SCENE_THRESHOLD}）===="
 rm -f "$OUT_DIR"/slides/*.png
 ffmpeg -hide_banner -loglevel error -i "$VIDEO" \
   -vf "select='gt(scene,$SCENE_THRESHOLD)'" -vsync vfr \

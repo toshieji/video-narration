@@ -89,7 +89,7 @@ payload = {
 print(json.dumps(payload, ensure_ascii=False))
 PYEOF
 
-echo "==== Gemini API 呼び出し中（model=$GEMINI_TTS_MODEL, voice=$GEMINI_TTS_VOICE）===="
+echo "==== Gemini API 呼び出し中（model=$GEMINI_TTS_MODEL, voice=${GEMINI_TTS_VOICE}）===="
 # APIキーはURLではなくヘッダで渡す（URLだとプロセス一覧やログに残りうる）。
 # タイムアウトとリトライを設定し、通信断で無期限待機しないようにする。
 HTTP_CODE=$(curl -sS -X POST \
