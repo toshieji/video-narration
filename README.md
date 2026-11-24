@@ -54,7 +54,7 @@ python3 scripts/split_narration.py <part-script.md> <out-dir>
 ```
 generate_tts.sh <input.txt> <output.wav> [--voice NAME] [--model NAME] [--env-file PATH]
 ```
-Gemini APIの`generateContent`を直接叩く。**声を統一したい場合は、手動生成した分も含め全クリップを同じ設定で作り直すこと**——一部だけ違う方法・違う声で作ると聞き比べたときに声が変わって聞こえる（本セッションで実際に起きた問題）。
+Gemini APIの`generateContent`を直接叩く。**声を統一したい場合は、手動生成した分も含め全クリップを同じ設定で作り直すこと**——一部だけ違う方法・違う声で作ると聞き比べたときに声が変わって聞こえる（制作時に実際に起きた問題）。
 
 ### Stage 3: 検証（`verify_narration.py`）
 ```
@@ -99,7 +99,7 @@ review_video.sh <video.mp4> --gap-expected 1.5 --expected-slides 23 \
 
 **読み間違え対策**: 固有名詞・読みが割れる漢字語は、原稿ではひらがなで書く（実例: 「対になる」→「たいになる」）。TTSは漢字の読みを誤ることがある。人間向けの台本本体の漢字表記は変えず、TTSに渡すテキストだけをひらがな化する。
 
-**Whisperの長尺音声幻覚**: 動画全体のような長い音声をWhisperに一度に通すと、実際には存在しない文言を生成することがある（本セッションで確認した実例: 完全に無音の区間に対し、英単語「partnerships」が5回連続で出力された。`ffmpeg -af volumedetect` で当該区間が実際には-90dB前後の無音であることを確認して判明）。`verify_narration.py`が1クリップ単位の設計になっているのはこのため。
+**Whisperの長尺音声幻覚**: 動画全体のような長い音声をWhisperに一度に通すと、実際には存在しない文言を生成することがある（制作時に確認した実例: 完全に無音の区間に対し、英単語「partnerships」が5回連続で出力された。`ffmpeg -af volumedetect` で当該区間が実際には-90dB前後の無音であることを確認して判明）。`verify_narration.py`が1クリップ単位の設計になっているのはこのため。
 
 **TTSモデル名が404する場合**: プレビューモデルのため名前が変わることがある。`https://generativelanguage.googleapis.com/v1beta/models?key=KEY` で `tts` を含むモデル名を確認する。
 

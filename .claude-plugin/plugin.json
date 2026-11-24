@@ -2,7 +2,7 @@
   "name": "video-narration",
   "version": "0.1.0",
   "description": "スライド台本からAIナレーション動画を作る一連のパイプライン（台本→TTS音声生成→Whisper検証→動画組み立て→PowerPoint音声埋め込み）を、任意のエージェント（Claude Code / Gemini CLI / Codex CLI / Cursor 等）から再利用できる形にまとめたもの。WACA上級ウェブ解析士 事前課題オリエンテーション動画の制作で実践したノウハウ（Gemini TTSのグリッチ対処、ffmpeg画像+音声結合の落とし穴、PowerPoint音声埋め込みの仕様）を一般化。",
-  "author": { "name": "WACA / a4u", "url": "https://github.com/toshieji/waca-certification" },
+  "author": { "name": "WACA / a4u", "url": "https://github.com/toshieji/video-narration" },
   "keywords": ["video", "narration", "tts", "gemini", "ffmpeg", "pptx", "e-learning", "course-video", "text-to-speech"],
   "commands": "./commands",
   "skills": "./skills"
